@@ -1,0 +1,122 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage[a4paper,top=1.5cm, bottom=1.5cm, left=1cm, right=1cm]{geometry}
+\usepackage{cmap}					% поиск в PDF
+\usepackage{mathtext} 				% русские буквы в формулах
+\usepackage[T2A]{fontenc}			% кодировка
+\usepackage[utf8]{inputenc}			% кодировка исходного текста
+\usepackage[english,russian]{babel}	% локализация и переносы
+
+\usepackage{amsmath}
+\usepackage{indentfirst}
+\usepackage{longtable}
+\usepackage{graphicx}
+\usepackage{array}
+
+\usepackage{wrapfig}
+\usepackage{siunitx} % Required for alignment
+\usepackage{subfigure}
+\usepackage{multirow}
+\usepackage{rotating}
+\usepackage{caption}
+
+\graphicspath{{.}}
+
+
+\title{\begin{center} Название работы\end{center}
+Измерение коэффициента поверхностного натяжения жидкости}
+\author{Владимир Вехов // ФРКТ}
+\date{\today}
+
+\begin{document}
+    \pagenumbering{gobble}
+    \maketitle
+    \newpage
+    \pagenumbering{arabic}
+
+    \textbf{Цель работы:} 1)...
+
+	\textbf{В работе используются:} ...
+
+    \section{Теоретические сведения}
+
+	\begin{equation}
+		\Delta P = P_{int} - P_{ext} = \frac{2\sigma}{r},
+		\label{key}
+	\end{equation}
+	где $ \sigma $ -- коэффициент, $ P_{int} $ и $ P_{ext} $ -- давление
+
+	\section{Экспериментальная установка}
+
+    \begin{figure}[!ht]
+        \begin{center}
+            \includegraphics[width=0.6 \textwidth]{ustan.jpg}
+        \end{center}
+        \caption{Экспериментальная установка}
+		\label{img:ust}
+    \end{figure}
+
+
+	\section{Ход работы}
+
+		\subsection{Проверка герметичности установки}
+
+			Для проверки опускаем чистую сухую иглу в сосуд со спиртом так, чтобы кончик иглы лишь касался поверхности спирта. Плотно закрываем обе колбы и открываем кран аспиратора для пробулькивания пузырьков воздуха в колбе. Замеряем показания микроманометра, они не должны меняться.
+
+		\subsection{Начало измерений}
+
+			Положением крана аспиратора подбираем частоту падения капель так, чтобы максимальное давление манометра не зависело от этой частоты (не чаще чем 1 капля в 5 секунд).
+
+		\subsection{Определение диаметра иглы}
+			\label{needle_diam}
+
+			Параметры при измерениях:
+
+			\begin{align*}
+				t_{комн} &= 25~^oC & \sigma_{спирт} &= 22.3~\frac{мН}{м}
+			\end{align*}
+
+
+			\begin{table}[!ht]
+				\centering
+				\begin{tabular}{|c|c|c|c|c|}
+					\hline
+
+					№ & $T, K$ & $h, мм$ & $P, Па$ & $\sigma, мН/м$\\ \hline
+					1 & $298.3 \pm 0.1$ & $188 \pm 1$ & $289 \pm 3$ & $78 \pm 4$\\ \hline
+					2 & $300.4 \pm 0.1$ & $187 \pm 1$ & $288 \pm 3$ & $77 \pm 4$\\ \hline
+					3 & $303.4 \pm 0.1$ & $186 \pm 1$ & $286 \pm 3$ & $77 \pm 4$\\ \hline
+					4 & $306.4 \pm 0.1$ & $185 \pm 1$ & $285 \pm 3$ & $77 \pm 4$\\ \hline
+					5 & $309.3 \pm 0.1$ & $184 \pm 1$ & $283 \pm 3$ & $76 \pm 4$\\ \hline
+					6 & $312.3 \pm 0.1$ & $184 \pm 1$ & $283 \pm 3$ & $76 \pm 4$\\ \hline
+					7 & $315.2 \pm 0.1$ & $183 \pm 1$ & $282 \pm 3$ & $76 \pm 4$\\ \hline
+					8 & $318.2 \pm 0.1$ & $182 \pm 1$ & $280 \pm 3$ & $75 \pm 4$\\ \hline
+					9 & $321.3 \pm 0.1$ & $181 \pm 1$ & $279 \pm 3$ & $75 \pm 4$\\ \hline
+
+				\end{tabular}
+				\caption{Результаты $\sigma(T)$}
+				\label{tab:sigma_T}
+			\end{table}
+
+		\subsection{График зависимости $\sigma(T)$}
+
+			\begin{figure}[!ht]
+				\centering
+				\includegraphics[width=0.75\textwidth]{sigma_T_plot.png}
+				\caption{График зависимости $\sigma(T)$}
+				\label{plot:dsigma_div_dT}
+			\end{figure}
+
+
+
+			\begin{align*}
+				\frac{С_{P(П)} - C_{P(Ж)}}{L_0} \sigma_0 &= (-74 \pm 4)~\frac{мкН}{м*К}\\
+				\left( \frac{d\sigma}{dT} \right) &= (-119 \pm 9)~\frac{мкН}{м*К}
+			\end{align*}
+
+	\section{Вывод}
+
+		В ходе работы измерили температурную зависимость коэффициента поверхностного натяжения дистиллированной воды при различной температуре. А также определили полную поверхностную энергию и теплоту, необходимую для изотермического образования единицы поверхности жидкости.
+
+		Несовпадение полученных результатов с табличными значениями можно объяснить загрязнённостью иглы и дистиллята.
+
+\end{document}
