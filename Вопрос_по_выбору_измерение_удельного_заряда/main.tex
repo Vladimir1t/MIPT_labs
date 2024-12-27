@@ -1,0 +1,415 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{geometry}
+\usepackage{wrapfig}
+\geometry{
+    a4paper,
+    total={170mm,237mm},
+    left=20mm,
+    right=20mm,
+    top=30mm,
+}
+\usepackage{titlesec} % Для форматирования заголовков
+\titlelabel{\thetitle.\quad} % точка в section
+
+%%% Работа с русским языком
+\usepackage{cmap}  % поиск в PDF
+\usepackage[T2A]{fontenc}  % кодировка шрифтов
+\usepackage[utf8]{inputenc}  % кодировка исходного текста
+\usepackage[english,russian]{babel}  % локализация и переносы
+
+% Математика
+\usepackage{amsmath,amsfonts,amssymb,amsthm,mathtools}  % Пакеты AMS
+\usepackage{icomma}  % "Умная" запятая
+
+%% Шрифты
+\usepackage{euscript}  % Шрифт Евклид
+\usepackage{mathrsfs}  % Красивый матшрифт
+
+% Разные полезные пакеты
+\usepackage{setspace}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{adjustbox}
+\usepackage{dashbox}
+\usepackage[normalem]{ulem}  
+\usepackage[babel=true]{microtype}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{cancel}
+\usepackage{upgreek}
+\usepackage{lipsum}
+\usepackage[version=4]{mhchem}
+\usepackage{multirow}
+\usepackage{stackengine}
+\usepackage{tikz}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\usetikzlibrary{positioning}
+\usepackage{titletoc}
+\usepackage{chngcntr}
+\usepackage{fancyhdr}
+\usepackage{makecell}
+\usepackage{indentfirst}
+\usepackage{tocloft}
+\usepackage{soul}
+\usepackage[stable]{footmisc}
+\usepackage{subfig}
+
+\mathtoolsset{showonlyrefs=true}
+
+\theoremstyle{definition}
+\newtheorem*{definition}{Определение}
+\newtheorem{statement}{Предложение}[section]
+\newtheorem{lemma}{Лемма}[section]
+\newtheorem{theorem}{Теорема}[section]
+\newtheorem*{theoremn}{Теорема}
+\newtheorem*{corollary}{Следствие}
+\newtheorem*{example}{Пример}
+\newtheorem*{note}{Замечание}
+\newtheorem*{problem}{Задача}
+
+\renewcommand{\floatpagefraction}{0.9} % Минимальная доля страницы, которую должна занимать фигура
+\renewcommand{\topfraction}{0.9}      % Максимальная доля верхней части страницы для float
+\renewcommand{\textfraction}{0.1}     % Минимальная доля страницы для текста
+
+
+\newcommand{\dotpr}[2]{\langle #1 | #2 \rangle} % Исправленная команда для скалярного произведения
+\let\emptyset\varnothing % Переопределение пустого множества
+\DeclareMathOperator*{\esssup}{ess\,sup}
+\DeclareMathOperator*{\ord}{ord}
+\DeclareMathOperator*{\supp}{supp}
+\DeclareMathOperator*{\pr}{pr}
+\DeclareMathOperator*{\Ker}{Ker}
+\DeclareMathOperator*{\Vol}{Vol}
+\DeclareMathOperator*{\rg}{rk}
+\DeclareMathOperator*{\Ima}{Im}
+\DeclareMathOperator*{\Alt}{Alt}
+\DeclareMathOperator*{\Sym}{Sym}
+\newcommand{\eqdef}{\stackrel{\text{\tiny{def}}}{=}}
+\newcommand{\pp}{\partial}
+\newcommand{\BB}{\mathcal{B}}
+\newcommand{\MM}{\mathbb{M}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\FFF}{\mathbb{F}}
+\newcommand{\DD}{\mathcal{D}}
+\newcommand{\FF}{\mathcal{F}}
+\newcommand{\sS}{\mathcal{S}}
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+        \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+\renewcommand{\normalsize}{\fontsize{12}{15}\selectfont} 
+
+% .....................................
+
+\begin{document}
+
+\begin{titlepage}
+	\begin{center}
+
+		\LARGE \textbf{Вопрос по выбору}\\ \vspace{0.2cm}
+		\LARGE \textbf{Исследование удельного заряда электрона 2 способами:\\ 
+        "<Закон трех вторых">. Метод магнетрона}
+	\end{center}
+	\vspace{2.3cm} \large
+	
+	\begin{center}
+		% Мотыгуллин Булат, Шипилов Степан, Вехов Владимир
+		\vspace{10mm}
+		
+	
+		
+		
+	\end{center}
+	
+\end{titlepage}
+
+
+
+\paragraph*{Цель работы:} определение удельного заряда электрона на основе "<закона трех вторых"> [1] и методом магнетрона [2].
+
+\paragraph*{\LARGE  метод 3/2 [1]}
+\paragraph*{Оборудование:} радиолампа с цилиндрическим анодом, мульлиметр-амперметр, стабилизированные источники постоянного тока и постоянного напряжения.
+
+
+\section{Теоретическая справка [1]}
+
+\textbf{Закон степени трёх вторых} (закон Чайлда, закон Чайлда-Ленгмюра, закон Чайлда-Ленгмюра-Богуславского) ---  в электровакуумной технике задаёт квазистатическую вольт-амперную характеристику идеального вакуумного диода --- зависимость тока анода от напряжения между его катодом и анодом --- в режиме пространственного заряда.
+
+\begin{equation}\label{}
+I \sim V^{3/2}
+\end{equation}
+
+
+В работе исследуется зависимости прямого тока, проходящего через вакуумный диод, в зависимости от напряжения на нем, а именно та часть вольт-амперной характеристики, в которой электронное облако существенно влияет на распределение электрического поля между катодом и анодом.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{Снимок экрана 2024-12-26 в 14.03.35.png}
+    \includegraphics[width=0.5\linewidth]{Снимок экрана 2024-12-26 в 14.01.57.png}
+    
+\end{figure}
+
+
+Распределение потенциала по радиусу внутри диода определяется уравнением Пуассона в цилиндрических координатах:
+
+\begin{equation}\label{}
+\Delta V = \dfrac{d^2V}{dr^2} + \dfrac{1}{r} + \dfrac{dV}{dr} = - \dfrac{\rho(r)}{\epsilon_0}
+\end{equation}
+
+При этом плотность заряда $ \rho(r) $ связана с текущим через слой диода толщины $ l $ током $ I $ формулой $ I = -2\pi r \rho(r)v(r)l$. При этом из закона сохранения энергии мы легко находим скорость $ v(r) $ электронов , прошедших через разность потенциалов $ V(r) $: $ \frac{mv^2}{2} = eV(r) $.  Отсюда мы получаем уравнение 
+
+\begin{equation}\label{ur}
+r \dfrac{d^2V}{dr^2} + \dfrac{dV}{dr} = \dfrac{I}{2\pi\epsilon_0}\sqrt{\dfrac{m}{2eV}}
+\end{equation}
+
+Однако, в дифференциальном уравнении 2-ого порядка относительно $ V(r) $ нам неизвестен ток I, зависящий от V. Для доопределения уравнения будем полагать:
+
+\begin{equation}\label{usl}
+\dfrac{dV}{dt}\bigg |_{r=r_k} = 0
+\end{equation} 
+
+Наше предположение означает что вблизи катода пространственный заряд электронов полностью экранирует поле анодной разности потенциалов.
+
+Уравнение \eqref{ur} является нелинейным. Попробуем  найти некое частное решение, где $ V_a = V_{a0}, $ при котором ток $ I = I_0 $. Тогда выражения 
+
+\begin{equation}\label{}
+I = I_o \left( \dfrac{V_a}{V{a0}} \right) ^{3/2}, \qquad V(r) = V_{a0}(r)\dfrac{V_a}{V_{a0}}
+\end{equation}
+
+являются решением уравнения \eqref{ur}, что проверяется подстановкой. В общем виде решение записывается в виде
+
+\begin{equation}\label{3/2}
+I = \dfrac{8\sqrt{2}\pi \epsilon_0 l}{9}\sqrt{\dfrac{e}{m}}\dfrac{1}{r_a\beta^2} V^{3/2}
+\end{equation}
+
+Это и есть так называемый "<закон трех вторых"> -- ток в вакуумном диоде пропорционален напряжению на нем в степени 3/2. Он справедлив при любой геометрии электродов, если ток не слишком велик (т.е. пока выполнено условие \eqref{usl}). 
+
+Так как нам нужно найти удельный заряд электрона, выпишем в явном виде его из уравнения \eqref{3/2}:
+
+\begin{equation}\label{e/m}
+\dfrac{e}{m} = \dfrac{81r_a^2\beta^4}{128\pi^2\epsilon_0^2l^2} \cdot \dfrac{I^2}{V^3} = k \cdot \dfrac{I^2}{V^3}
+\end{equation}
+
+Таким образом, удельный заряд электрона определяется из отношения квадрата тока к кубу напряжения, умноженный на коэффициент, зависящий от параметров установки.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.9\linewidth]{Снимок экрана 2024-12-26 в 12.09.32.png}
+   
+\end{figure}
+
+В работе используется диод 2Ц2С с косвенным накалом. Радиус его катода $ r_k = 0,9 $ мм, радиус анода $ r_a = 9,5  $ мм, коэффициент $ \beta^2 = 0,98 $, длина слоя центральной части катода, покрытой оксидным слоем $ l = 9 $ мм.
+
+Для подогрева катода и анода используются стабилизированные источники постоянного тока и напряжения. В цепь накала включено предохранительное напряжение $ R $. Анодное напряжение измеряется вольтметром источника питания, анодный ток --- многопредельным мультиметром GDM-8245. 
+
+
+\section{Ход работы [1]}
+
+Измерения проводим для токов накала  $I_n$  = [1, 1.1, 1.2, 1.3, 1.4, 1.5]  $А$.
+\\
+
+Построим графики зависимости анодного тока от напряжения для всех токов накала, меняя напряжение в пределах от 0,5 В до 110 В. Тем самым проходя все возможные значения в возможном диапазоне.
+
+    
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[width=1\linewidth]{vah_1.pdf}
+    \end{figure}
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[width=1\linewidth]{vah_1_1.pdf}
+    \end{figure}
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[width=1 \linewidth]{vah_1_2.pdf}
+    \end{figure}
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[width=1 \linewidth]{vah_1_3.pdf}
+    \end{figure}
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[width=1 \linewidth]{vah_1_4.pdf}
+    \end{figure}
+    
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[width=1 \linewidth]{vah_1_5.pdf}
+    \end{figure}
+
+
+Из теории известно, что "<закон трех вторых"> верен только на некотором участке вольт-амперной характеристики. Из формулы \eqref{e/m} и физического смысла понятно, что отношение $ \frac{I^2}{V^3} $ должно быть постоянным (ведь оно пропорционально фундаментальной константе).
+\\
+
+Построим графики для выбранных точек. Получим линейные графики зависимости $I$ от $V^{3/2}$.
+\\
+
+Закон 3/2 выполняется только при средних токах, когда мы находимся примерно на линейном участке ВАХ. ри мал наени тока накала, у нас все точки сконцентрированы либо уже в зоне насыщения, либо в в области маленьких анодных токов. Поэтому нормально построить зависимость нет возможности.\\ 
+Оставим только гарфики для случаев $I_n$ = 1.2, 1.3, 1.4, 1.5 $А$.
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{linear_1_2.pdf}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{linear_1_3.pdf}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{linear_1_4.pdf}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{linear_1_5.pdf}
+\end{figure}
+Теперь вычислим искомое значение удельного заряда электрона.
+
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{cccccc}
+         $N$&  Ток накала $I_n$, А&  коэф, $\text{мкА}$/В^{3/2}&  Погрешность, Кл/кг&  $e/m$ \cdot 10^{11}, $Кл/кг$& $\sigma \cdot 10^{11}$, $\text{Кл/кг}$\\
+         1&  1,2&  15,248&  0,249&  1,756& 0,057\\
+         2&  1,3&  15,237&  0,343&  1,753& 0,079\\
+         3&  1,4&  15,238&  0,234&  1,753& 0,054\\
+         4&  1,5&  13,286&  0,171&  1,333& 0,034\\
+    \end{tabular}
+
+    \label{tab:my_label}
+\end{table}
+
+
+
+\paragraph*{\LARGE Метод магнетрона [2]}
+
+\paragraph*{Оборудование:} Электронно-лучевая трубка и блок питания к ней, источник постоянного тока, соленоид, электростатический вольтметр, милливеберметр, ключи.
+
+\section{Описание установки. [2]}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{Снимок экрана 2024-12-26 в 15.02.04.png}
+    \caption{Схема установки.}
+\end{figure}
+Два крайних цилиндра изолированы от среднего небольшими зазорами и используются для устранения краевых эффектов на торцах среднего цилиндра, ток с которого используется при измерениях. В качестве катода используется тонкая вольфрамовая проволока. Катод разогревается переменным током, отбираемым от стабилизированного источника питания. 
+
+С этого же источника на анод лампы подается напряжение, регулируемое с помощью потенциометра и измеряемое вольтметром.
+
+Индукция магнитного поля в соленоиде рассчитывается по току $I_m$, протекающему через обмотку соленоида. Коэффициент пропорциональности между ними указан в установке.
+
+Лампа закреплена в соленоиде. Магнитное поле в соленоиде создается постоянным током, сила которого регулируется ручками источника питания и измеряется амперметром.
+
+\section{Теоретическая справка [2]}
+
+В настоящей работе отношение e/m для электрона определяется с по-
+мощью метода, получившего название «метод магнетрона». Это название
+связано с тем, что применяемая в работе конфигурация электрического
+и магнитного полей напоминает конфигурацию полей в магнетронах —
+генераторах электромагнитных колебаний сверхвысоких частот.\\
+
+Здесь удельный заряд электрона определяется по формуле
+\begin{equation}
+\dfrac{e}{m_e} = \dfrac{8V_a}{B_{kr}^2 r_a^2},
+\end{equation}
+
+Формула позволяет вычислять e/m, если при заданном Vа найдено такое значение магнитного поля (или, наоборот, при заданном B такое значение Vа), при котором электроны перестают попадать на анод.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{Снимок экрана 2024-12-26 в 15.15.43.png}
+
+\end{figure}
+
+До сих пор мы рассматривали идеальный случай, когда при $B < B_{kr}$ все электроны без исключения попадают на анод, а при $ B > B_{kr}$ все они возвращаются на катод, не достигнув анода. Анодный ток $I_a$ с увеличением магнитного поля изменялся бы при этом так, как это изображено на рис. 4 штриховой линией.
+
+
+\section{Ход работы [2]}
+
+Снимем зависимость анодного тока $I_a$ от индукции магнитного поля в соленоиде (от тока $I_m$ через соленоид). В области резкого изменения тока точки должны лежать чаще. Снимем значения для значений напряжений $V_a$ = [70, 76, 80, 90, 96, 100, 110, 116, 120] $В$.\\
+\\
+Построим графики.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{magentron_70V.pdf}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{magentron_76V.pdf}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{magentron_80V.pdf}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{magentron_90V.pdf}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{magentron_96V.pdf}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{magentron_100V.pdf}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{magentron_110V.pdf}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{magentron_116V.pdf}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{magentron_120V.pdf}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{V(B_cr^2).pdf}
+    \caption{график зависимости $B_{kr}^2$ от $V_a$.}
+\end{figure}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{cc}
+         удельный заряд $e/m 10^{-11} Кл/кг$& погрешность, $10^{-11} Кл/кг$\\
+         1,791& 0,213\\
+    \end{tabular}
+    \caption{Результат}
+    \label{tab:my_label}
+\end{table}
+
+\section{Вывод [1] и [2]}
+
+Табличное значение удельного заряда электрона равно $ 1,758 \cdot 10^{11} \text{Кл/кг} $. Под него хорошо подходит результат, полученный в методе "<3/2">  при токе накала $ I_n = 1,5  \text{А}$:
+
+
+\begin{center}
+$$
+ \dfrac{e}{m} = (1,756 \pm 0,057) \cdot 10^{11} \text{Кл/кг}
+$$
+\\
+\end{center} 
+
+Как мы видим, данный метод позволяет определить удельный заряд электрона с точностью до порядка величины ( $\simeq  10^{11} \text{Кл/кг}$).
+
+Метод магнетрона оказался менее точным, погршнсость на 1 порядок больше чем у метода 3/2 :
+\begin{center}
+$$
+ \dfrac{e}{m} = (1,791 \pm 0,213) \cdot 10^{11} \text{Кл/кг}
+$$
+\end{center} 
+
+
+\end{document}
